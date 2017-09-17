@@ -1,0 +1,144 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/Estilo.css">
+    <script type="text/javascript" language ="javascript" src="./js/jquery-3.2.1.min.js"></script>
+    <title>Formulario - Banda</title>
+</head>
+    <body>
+    <div class="cabecalho">
+        <span id="totallinhas">1</span>
+        <h2>Formulário de Bandas</h2>
+    </div>
+    <form action="saida.php" method="post">
+        <div>
+        <fieldset>
+            <legend>Dados da Banda</legend>
+                <table>
+                    <tr>
+                        <td>Nome da banda:</td>
+                        <td><input type="text" name="nomebanda" id="nmbanda"></td>
+                    </tr>
+                    <tr>
+                        <td><i>Link</i> para a Imagem :</td>
+                        <td><input type="text" name="imagembanda" id="imagembanda"></td>
+                    </tr>
+                </table>
+        </fieldset>
+        </div>
+        <div>    
+        <fieldset>
+            <legend>Dados dos Integrantes</legend>
+            <table class="tabintegrantes" id="integrantes">
+                <th>
+                    Integrante(Nome)
+                </th>
+                <th>
+                    Data de Nascimento
+                </th>
+                <th>
+                    Instrumento
+                </th>
+                <th>
+                    Quantidade
+                </th>
+                <tr>
+                    <td><input type="text" name="nmintegrante0"></td>
+                    <td><input type="text" name="datanascimento0"></td>
+                    <td><input type="text" name="instrumento0"></td>
+                    <td><select id="qtdlinhas">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+    </fieldset>
+    <div>
+        <fieldset>
+            <legend>Biografia</legend>
+             <table>
+                <th>Adicione a biografia da banda</th>
+                <tr>
+                    <td>
+                        
+                        <textarea cols="30" rows="5" name="biografia" class="biografia"></textarea>
+                    </td>
+                </tr>
+            </table>    
+
+        </fieldset>
+    </div> 
+    <div>
+        <fieldset>
+            <legend>Cores da Página</legend>
+            Cor de fundo da página:
+                <select name="cordefundo">
+                    <option value="corazul">Azul</option>
+                    <option value="coramarelo">Amarelo</option>
+                    <option value="corbranco">Branco</option>
+                    <option value="corpreto">Preto</option>
+                    <option value="corverde">Verde</option>
+                    <option value="corvermelho">Vermelho</option>
+                </select>
+            Cor do texto da página:
+                <select name="cordotexto">
+                    <option value="corazul">Azul</option>
+                    <option value="coramarelo">Amarelo</option>
+                    <option value="corbranco">Branco</option>
+                    <option value="corpreto">Preto</option>
+                    <option value="corverde">Verde</option>
+                    <option value="corvermelho">Vermelho</option>
+                </select>
+                <input type="submit" value="Gera página" id="gerarpag">
+        </fieldset>
+    </div>       
+    </form>
+
+
+<script>
+   $(document).change(function() {
+    $("#qtdlinhas").change(function() {
+        let qtdlinhas = $('#qtdlinhas').val();
+        let totallinhas = document.getElementById("totallinhas");
+        let tabela = document.getElementById("integrantes");
+        let body = "";
+        console.log("total de linhas"+totallinhas.innerText);
+        console.log(qtdlinhas); 
+
+            if (qtdlinhas>0 && qtdlinhas > totallinhas.innerText){
+                for (var i = totallinhas.innerText; i < qtdlinhas; i++)
+                {
+                    
+                    
+                   // console.log(tabela);
+                    
+                    body = "<tr>"+
+                                "<td><input type=text name=nmintegrante"+i+"></td>"+
+                                "<td><input type=text name=datanascimento"+i+"></td>"+
+                                "<td><input type=text name=instrumento"+i+"></td>"+
+                                "<td><label>-</label>"+
+                            "</tr>"
+                    tabela.innerHTML += body;
+                    totallinhas.innerHTML = " <span id=totallinhas>"+(qtdlinhas)+"</span>";
+                }
+
+            }
+        
+               
+    
+    
+    });
+    //console.log('Agora sim');
+});
+</script>       
+</body>
+
+
+
+</html>
