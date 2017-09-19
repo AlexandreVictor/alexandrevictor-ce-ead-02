@@ -9,21 +9,20 @@
 </head>
     <body>
     <div class="cabecalho">
-        <span id="totallinhas">1</span>
         <h2>Formulário de Bandas</h2>
     </div>
-    <form action="saida.php" method="post">
+    <form action="saida.php" method="post" name="form1">
         <div>
         <fieldset>
             <legend>Dados da Banda</legend>
                 <table>
                     <tr>
                         <td>Nome da banda:</td>
-                        <td><input type="text" name="nomebanda" id="nmbanda"></td>
+                        <td><input type="text" name="nomebanda"  id="input1"></td>
                     </tr>
                     <tr>
                         <td><i>Link</i> para a Imagem :</td>
-                        <td><input type="text" name="imagembanda" id="imagembanda"></td>
+                        <td><input type="text" name="imagembanda" id="input2"></td>
                     </tr>
                 </table>
         </fieldset>
@@ -31,7 +30,7 @@
         <div>    
         <fieldset>
             <legend>Dados dos Integrantes</legend>
-            <table class="tabintegrantes" id="integrantes">
+            <table id="integrantes">
                 <th>
                     Integrante(Nome)
                 </th>
@@ -41,7 +40,7 @@
                 <th>
                     Instrumento
                 </th>
-                <th>
+           <!-- <th>
                     Quantidade
                 </th>
                 <tr>
@@ -56,7 +55,24 @@
                             <option value="5">5</option>
                         </select>
                     </td>
+                </tr>-->
+                <tr>
+                    <td><input type="text" name="nmintegrante0"></td>
+                    <td><input type="text" name="datanascimento0"></td>
+                    <td><input type="text" name="instrumento0"></td>
                 </tr>
+                <tr>
+                    <td><input type="text" name="nmintegrante1"></td>
+                    <td><input type="text" name="datanascimento1"></td>
+                    <td><input type="text" name="instrumento1"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="nmintegrante2"></td>
+                    <td><input type="text" name="datanascimento2"></td>
+                    <td><input type="text" name="instrumento2"></td>
+                </tr>
+              
+
             </table>
     </fieldset>
     <div>
@@ -66,7 +82,6 @@
                 <th>Adicione a biografia da banda</th>
                 <tr>
                     <td>
-                        
                         <textarea cols="30" rows="5" name="biografia" class="biografia"></textarea>
                     </td>
                 </tr>
@@ -79,34 +94,35 @@
             <legend>Cores da Página</legend>
             Cor de fundo da página:
                 <select name="cordefundo">
-                    <option value="corazul">Azul</option>
-                    <option value="coramarelo">Amarelo</option>
-                    <option value="corbranco">Branco</option>
-                    <option value="corpreto">Preto</option>
-                    <option value="corverde">Verde</option>
-                    <option value="corvermelho">Vermelho</option>
+                    <option value="bkcorazul">Azul</option>
+                    <option value="bkcoramarelo">Amarelo</option>
+                    <option value="bkcorbranco">Branco</option>
+                    <option value="bkcorpreto">Preto</option>
+                    <option value="bkcorverde">Verde</option>
+                    <option value="bkcorvermelho">Vermelho</option>
                 </select>
             Cor do texto da página:
                 <select name="cordotexto">
-                    <option value="corazul">Azul</option>
-                    <option value="coramarelo">Amarelo</option>
-                    <option value="corbranco">Branco</option>
-                    <option value="corpreto">Preto</option>
-                    <option value="corverde">Verde</option>
-                    <option value="corvermelho">Vermelho</option>
+                    <option value="ftcorazul">Azul</option>
+                    <option value="ftcoramarelo">Amarelo</option>
+                    <option value="ftcorbranco">Branco</option>
+                    <option value="ftcorpreto">Preto</option>
+                    <option value="ftcorverde">Verde</option>
+                    <option value="ftcorvermelho">Vermelho</option>
                 </select>
                 <input type="submit" value="Gera página" id="gerarpag">
         </fieldset>
     </div>       
-    </form>
+</form>
 
-
+<!--
 <script>
    $(document).change(function() {
     $("#qtdlinhas").change(function() {
         let qtdlinhas = $('#qtdlinhas').val();
-        let totallinhas = document.getElementById("totallinhas");
+        //let totallinhas = document.getElementById("totallinhas");
         let tabela = document.getElementById("integrantes");
+        let teste = document.getElementById("totallinhas")
         let body = "";
         console.log("total de linhas"+totallinhas.innerText);
         console.log(qtdlinhas); 
@@ -115,9 +131,6 @@
                 for (var i = totallinhas.innerText; i < qtdlinhas; i++)
                 {
                     
-                    
-                   // console.log(tabela);
-                    
                     body = "<tr>"+
                                 "<td><input type=text name=nmintegrante"+i+"></td>"+
                                 "<td><input type=text name=datanascimento"+i+"></td>"+
@@ -125,18 +138,18 @@
                                 "<td><label>-</label>"+
                             "</tr>"
                     tabela.innerHTML += body;
-                    totallinhas.innerHTML = " <span id=totallinhas>"+(qtdlinhas)+"</span>";
+                   // totallinhas.innerHTML = "<input type=text name='linhastotais'  id='totallinhas' value='"+qtdlinhas+"'>";
                 }
 
             }
-        
+
                
     
     
     });
-    //console.log('Agora sim');
+
 });
-</script>       
+</script>       -->
 </body>
 
 

@@ -3,10 +3,16 @@
          $nmintegrante0 = $_POST['nmintegrante0'];
          $datanascimento0 = $_POST['datanascimento0'];
          $instrumento0 = $_POST['instrumento0'];
+         $nmintegrante1 = $_POST['nmintegrante1'];
+         $datanascimento1 = $_POST['datanascimento1'];
+         $instrumento1 = $_POST['instrumento1'];
+         $nmintegrante2 = $_POST['nmintegrante2'];
+         $datanascimento2 = $_POST['datanascimento2'];
+         $instrumento2 = $_POST['instrumento2'];
          $imagembanda = $_POST['imagembanda'];
          $cordefundo = $_POST['cordefundo'];
          $cordotexto = $_POST['cordotexto'];
-
+         $biografia = $_POST['biografia'];
 ?>
 <html lang="pt-br">
 <head>
@@ -16,11 +22,40 @@
     <link rel="stylesheet" href="./css/Estilo.css">
     <title>Formulario - Banda</title>
 </head>
-    <body class=<?php echo $cordefundo ?>>
-        <h2><?php echo $nomebanda ?></h2>
-        <img src=<?php echo $imagembanda ?> alt="imagem da banda">
-        <?php echo $cordefundo ?>
-
+    <body class="<?php echo $cordefundo?> <?php echo $cordotexto  ?>">
+        <h2 class="titulos"><?php echo $nomebanda ?></h2>
+       <!--  <h2 class="titulos"><?php echo $totallinhas ?></h2> -->
+        <img src=<?php echo $imagembanda ?> alt="<?php echo $nomebanda ?>" title="<?php echo $nomebanda ?>">
+        <hr>
+        <h2 class="titulos">Biografia</h2>
+        <div class="biografiaphp" >
+            <?php echo $biografia?>
+        </div>
+        <hr>
+        <h2 class="titulos">Integrantes</h2>
+        <div>
+            <table border="2px solid" >
+                <th>Integrante(Nome)</th>
+                <th>Data de Nascimento</th>
+                <th>Instrumento</th>
+                <tr>
+                    <td><?php echo $nmintegrante0 ?></td>
+                    <td><?php echo $datanascimento0 ?></td>
+                    <td><?php echo $instrumento0 ?></td>
+                </tr>
+                <tr>
+                    <td><?php echo $nmintegrante1 ?></td>
+                    <td><?php echo $datanascimento1 ?></td>
+                    <td><?php echo $instrumento1 ?></td>
+                </tr>
+                <tr>
+                    <td><?php echo $nmintegrante2 ?></td>
+                    <td><?php echo $datanascimento2 ?></td>
+                    <td><?php echo $instrumento2 ?></td>
+                </tr>
+            </table>
+        </div>
+        
 
     </body>
 </html>
